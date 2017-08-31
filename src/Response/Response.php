@@ -2,6 +2,10 @@
 
 namespace Alexa\Response;
 
+use Alexa\Response\Card\SimpleCard;
+use Alexa\Response\Card\StandardCard;
+use Alexa\Response\Card\LinkAccountCard;
+
 class Response {
 	public $version = '1.0';
 	public $sessionAttributes = [];
@@ -31,18 +35,39 @@ class Response {
 	}
 
 	public function withCard($title, $content = '') {
-		$this->card = new Card;
+		$this->card = new SimpleCard;
 		$this->card->title = $title;
 		$this->card->content = $content;
 		
 		return $this;
 	}
 
+<<<<<<< HEAD
 	public function dialogDelegate() {
 		$this->dialogDelegate = true;
 
 		return $this;
 	}
+=======
+    /**
+     * @see https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/providing-home-cards-for-the-amazon-alexa-app#creating-a-home-card-to-display-text-and-an-image
+     */
+	public function withImageCard($title, $text = '', $smallImageUrl, $largeImageUrl) {
+	    $this->card = new StandardCard();
+	    $this->card->setTitle($title);
+	    $this->card->setText($text);
+	    $this->card->setSmallImageUrl($smallImageUrl);
+	    $this->card->setLargeImageUrl($largeImageUrl);
+
+	    return $this;
+    }
+
+    public function withLinkAccountCard() {
+	    $this->card = new LinkAccountCard();
+
+	    return $this;
+    }
+>>>>>>> 9b0c082b6c0acba198123a9dd675ddc31f27109d
 
 	public function endSession($shouldEndSession = true) {
 		$this->shouldEndSession = $shouldEndSession;

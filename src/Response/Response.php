@@ -34,6 +34,12 @@ class Response {
 		return $this;
 	}
 
+	public function dialogDelegate() {
+		$this->dialogDelegate = true;
+
+		return $this;
+	}
+
 	public function withCard($title, $content = '') {
 		$this->card = new SimpleCard;
 		$this->card->title = $title;
@@ -42,13 +48,6 @@ class Response {
 		return $this;
 	}
 
-<<<<<<< HEAD
-	public function dialogDelegate() {
-		$this->dialogDelegate = true;
-
-		return $this;
-	}
-=======
     /**
      * @see https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/providing-home-cards-for-the-amazon-alexa-app#creating-a-home-card-to-display-text-and-an-image
      */
@@ -67,7 +66,6 @@ class Response {
 
 	    return $this;
     }
->>>>>>> 9b0c082b6c0acba198123a9dd675ddc31f27109d
 
 	public function endSession($shouldEndSession = true) {
 		$this->shouldEndSession = $shouldEndSession;

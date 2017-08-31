@@ -70,7 +70,6 @@ $response->respond('To link the skill with your account, click the linkAccount s
 	->withLinkAccountCard();
 ```
 
-<<<<<<< HEAD
 Call `dialogDelegate()` to delegate response to Alexa Skills.
 
 ```php
@@ -78,9 +77,7 @@ $response = new \Alexa\Response\Response;
 $response->dialogDelegate();
 ```
 
-=======
 #### Output the response
->>>>>>> 9b0c082b6c0acba198123a9dd675ddc31f27109d
 To output the response, simply use the `->render()` function, e.g. in Laravel you would create the response like so:
 ```php
 return response()->json($response->render());
